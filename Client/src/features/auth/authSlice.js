@@ -3,7 +3,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const BASE_URL = "https://fatmonk-event.onrender.com/api";
+const BASE_URL = import.meta.env.VITE_API_URL;
 
 export const registerUser = createAsyncThunk(
   "auth/register",

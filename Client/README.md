@@ -91,20 +91,23 @@ Backend API Endpoints (Sample)
 
 How to Run Locally
 
+1. Clone & install dependencies:
+```bash
 git clone https://github.com/tamimhasan19702/Fatmonk-event.git
-cd event-dashboard 2. Install dependencies:
-bash
-Copy
-Edit
-npm install 3. Add your .env (if applicable):
-bash
-Copy
-Edit
-REACT_APP_API_BASE_URL=https://fatmonk-event.onrender.com/api 4. Start development server:
-bash
-Copy
-Edit
+cd Fatmonk-event/Client
+npm install
+```
+
+2. Configure environment (`.env.local`):
+```bash
+VITE_API_URL=https://fatmonk-event.onrender.com/api
+```
+
+3. Start development server:
+```bash
 npm run dev
+```
+
 🧪 Future Improvements
 Add search/filter events
 
@@ -115,6 +118,28 @@ Add comments or RSVPs
 Role-based access (admin, user)
 
 Better error boundaries
+
+## 📘 Case Study
+
+**Overview**
+Fatmonk Event is a full-stack event management platform letting users register, log in, and perform CRUD on events with media uploads. Purpose: replace a manual/static event listing with a dynamic, authenticated dashboard that any organiser can use in real time.
+
+**Challenges**
+Bridging a React SPA to a MongoDB-backed Express API required careful async state handling and secure token-based auth. File uploads (form-data) had to work alongside JSON payloads, and the client needed to stay robust when the deployed backend was briefly unavailable.
+
+**Architecture**
+React + Redux Toolkit frontend talking to a Node.js/Express REST API over axios. Mongoose models persist events/auth to MongoDB Atlas. JWT guards protected routes; the client consumes `/api/events` and `/api/auth` endpoints and is deployed on Vercel, backend on Render.
+
+**Future Improvements**
+Add search, filters, and pagination so the dashboard scales. Introduce RSVP/comments, role-based access (admin vs user), and stronger error boundaries. Move to a dedicated API client layer and consider rate-limiting and caching for better reliability.
+
+**Features**
+JWT authentication, event CRUD with image upload, protected routes, responsive Tailwind UI, async Redux state, and a hosted production backend with a configurable API URL via environment variables.
+
+**Tech Stack**
+- Frontend: React, Redux Toolkit, React Router, Tailwind CSS, Axios, Vite
+- Backend: Node.js, Express, Mongoose, MongoDB Atlas, JWT
+- Deployment: Vercel (frontend), Render (backend)
 
 🙌 Author
 Tareq Monower

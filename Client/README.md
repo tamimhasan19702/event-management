@@ -100,7 +100,7 @@ npm install
 
 2. Configure environment (`.env.local`):
 ```bash
-VITE_API_URL=https://fatmonk-event.onrender.com/api
+API_URL=https://fatmonk-event.onrender.com
 ```
 
 3. Start development server:
